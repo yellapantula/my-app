@@ -19,5 +19,6 @@ node{
     
     stage('Build mule docker image'){
         sh 'docker build -t athrey93/jenkins .'
+    }
     
 }
