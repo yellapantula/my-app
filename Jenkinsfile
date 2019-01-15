@@ -17,4 +17,7 @@ node{
         slackSend color: 'Green', message: 'Hi test is working'
     }
     
+    stage('Build mule docker image'){
+        sh 'docker build -t athrey93/jenkins .'
+    
 }
