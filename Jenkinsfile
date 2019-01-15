@@ -13,4 +13,8 @@ node{
 
 
     }
+    stage('Slack notify'){
+        slackSend color: 'Green', message: 'Hi test is working'
+    }
+    
 }
