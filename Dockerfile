@@ -15,6 +15,10 @@ ENV rt_pkg_filename=mule-ee-distribution-standalone-${mule_ver}.tar.gz
 ENV sw_basedir=/opt
 ENV rt_homedir=${sw_basedir}/mule-enterprise-standalone-${mule_ver}
 ENV rt_symb_homedir=${sw_basedir}/mule
+RUN curl -fsSLO https://get.docker/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
+  && tar xzvf docker-17.04.0-ce.tgz \
+  && mv docker/docker /usr/local/bin \
+  && rm -r docker docker-17.04.0-ce.tgz
 #RUN wget ${rt_pkg_url}
 COPY ./${rt_pkg_filename} ${sw_basedir}/
 RUN echo "${mule_pkg_md5sum} ${sw_basedir}/${rt_pkg_filename}" | md5sum -c
